@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP AI Important Links</title>
+  <style>
+    :root {
+      --sap-blue: #0070f2;
+      --sap-blue-dark: #0040b0;
+      --sap-teal: #0a6ed1;
+      --sap-green: #107e3e;
+      --sap-orange: #e76500;
+      --sap-purple: #6a2c8e;
+      --bg: #f5f7fa;
+      --card-bg: #ffffff;
+      --text: #1d2d3e;
+      --text-muted: #556b7d;
+      --border: #d9e2eb;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-hover: 0 6px 24px rgba(0,112,242,0.15);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: '72', 'SAP 72', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #0057b8 0%, #0070f2 50%, #00a0e0 100%);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── Section heading ── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 40px 0 18px;
+    }
+    .section-title .icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .section-title .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Card grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .grid-wide {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    /* ── Link card ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, var(--sap-blue));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent, var(--sap-blue));
+    }
+    .card .card-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      background: var(--icon-bg, #e8f3ff);
+    }
+    .card .card-body { flex: 1; min-width: 0; }
+    .card .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .card .card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card .card-arrow {
+      font-size: 16px;
+      color: var(--accent, var(--sap-blue));
+      opacity: 0;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      margin-top: 2px;
+    }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
+
+    /* ── Info card (non-link) ── */
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .info-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, var(--sap-orange));
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .info-card .card-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      background: var(--icon-bg, #fff3e0);
+    }
+    .info-card .card-body { flex: 1; }
+    .info-card .card-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .info-card .card-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; }
+
+    /* ── Color themes ── */
+    .blue  { --accent: #0070f2; --icon-bg: #e8f3ff; }
+    .teal  { --accent: #0891b2; --icon-bg: #e0f7fa; }
+    .green { --accent: #107e3e; --icon-bg: #e6f4ea; }
+    .orange{ --accent: #e76500; --icon-bg: #fff3e0; }
+    .purple{ --accent: #6a2c8e; --icon-bg: #f3e8ff; }
+    .pink  { --accent: #c0186c; --icon-bg: #fce4ec; }
+    .navy  { --accent: #1c3d5a; --icon-bg: #e8eef4; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 32px 16px 28px; }
+      main { padding: 24px 14px 40px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">SAP Internal Resources</div>
+  <h1>AI Important Links</h1>
+  <p>Quick access to SAP AI tools, GenAI Hub, calculators &amp; onboarding resources</p>
+</header>
+
+<main>
+
+  <!-- EKX Tools -->
+  <div class="section-title">
+    <div class="icon" style="background:#e8f3ff;">🔍</div>
+    <span>EKX Tools</span>
+    <div class="line"></div>
+  </div>
+  <div class="grid">
+    <a href="https://ekx.cloud.sap/chat/" target="_blank" rel="noopener" class="card blue">
+      <div class="card-icon">💬</div>
+      <div class="card-body">
+        <div class="card-title">EKX Chat</div>
+        <div class="card-desc">AI-powered chat interface on the EKX platform</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://ekx.cloud.sap/tools/search" target="_blank" rel="noopener" class="card teal">
+      <div class="card-icon">&#128375;</div>
+      <div class="card-body">
+        <div class="card-title">EKX Graph Search</div>
+        <div class="card-desc">Semantic graph-based search across enterprise knowledge</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+  </div>
+
+  <!-- Cost Calculators -->
+  <div class="section-title">
+    <div class="icon" style="background:#e6f4ea;">&#128176;</div>
+    <span>Cost Calculators</span>
+    <div class="line"></div>
+  </div>
+  <div class="grid">
+    <a href="https://ai-core-calculator.cfapps.eu10.hana.ondemand.com/uimodule/index.html#/gen" target="_blank" rel="noopener" class="card green">
+      <div class="card-icon">&#129518;</div>
+      <div class="card-body">
+        <div class="card-title">GenAI Hub Cost Calculator</div>
+        <div class="card-desc">Estimate costs for GenAI Hub usage and model consumption</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://ai-core-calculator.cfapps.eu10.hana.ondemand.com/uimodule/index.html#/core" target="_blank" rel="noopener" class="card orange">
+      <div class="card-icon">&#9881;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">AI Core Cost Calculator</div>
+        <div class="card-desc">Estimate costs for AI Core resources and infrastructure</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+  </div>
+
+  <!-- GenAI Hub -->
+  <div class="section-title">
+    <div class="icon" style="background:#f3e8ff;">&#10024;</div>
+    <span>GenAI Hub</span>
+    <div class="line"></div>
+  </div>
+  <div class="grid grid-wide">
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/modelLibrary"
+       target="_blank" rel="noopener" class="card purple">
+      <div class="card-icon">&#128218;</div>
+      <div class="card-body">
+        <div class="card-title">Model Library</div>
+        <div class="card-desc">Choose the right Model / LLM from the catalog for your use case</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/promptchat"
+       target="_blank" rel="noopener" class="card blue">
+      <div class="card-icon">&#129514;</div>
+      <div class="card-body">
+        <div class="card-title">AI Playground</div>
+        <div class="card-desc">Chat interface to try out various prompts and models with different configurations</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/prompteditor"
+       target="_blank" rel="noopener" class="card teal">
+      <div class="card-icon">&#9998;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">Prompt Editor</div>
+        <div class="card-desc">Create prompts and build reusable prompt templates</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/orchestration"
+       target="_blank" rel="noopener" class="card green">
+      <div class="card-icon">&#128256;</div>
+      <div class="card-body">
+        <div class="card-title">Orchestration Service</div>
+        <div class="card-desc">Create and manage orchestration workflows for AI pipelines</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/promptmanagement"
+       target="_blank" rel="noopener" class="card pink">
+      <div class="card-icon">&#128193;</div>
+      <div class="card-body">
+        <div class="card-title">Prompt Management</div>
+        <div class="card-desc">Manage and registry prompts for reuse across teams and use cases</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+    <a href="https://sapit-core-playground-vole.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=sap-genai-xl&resourceGroup=default&/g/optimization"
+       target="_blank" rel="noopener" class="card orange">
+      <div class="card-icon">&#128640;</div>
+      <div class="card-body">
+        <div class="card-title">Optimization</div>
+        <div class="card-desc">Optimize prompts and evaluate your AI workflows for best performance</div>
+      </div>
+      <div class="card-arrow">&#8594;</div>
+    </a>
+  </div>
+
+  <!-- AI Onboarding -->
+  <div class="section-title">
+    <div class="icon" style="background:#fce4ec;">&#127891;</div>
+    <span>AI Onboarding Process</span>
+    <div class="line"></div>
+  </div>
+  <div class="grid grid-wide">
+    <div class="info-card" style="--accent:#e76500;--icon-bg:#fff3e0;">
+      <div class="card-icon">&#127916;</div>
+      <div class="card-body">
+        <div class="card-title">Joule Studio Runtime &mdash; Agents Creation Overview</div>
+        <div class="card-desc">Video/PDF walkthrough of the agent creation process in Joule Studio Runtime. Recommended first step for new team members.</div>
+      </div>
+    </div>
+    <div class="info-card" style="--accent:#0070f2;--icon-bg:#e8f3ff;">
+      <div class="card-icon">&#128196;</div>
+      <div class="card-body">
+        <div class="card-title">LoB&rsquo;s Onboarding Agents Documentation</div>
+        <div class="card-desc">Line-of-Business specific documentation covering the full agents onboarding process. Read before starting your first agent project.</div>
+      </div>
+    </div>
+    <div class="info-card" style="--accent:#6a2c8e;--icon-bg:#f3e8ff;">
+      <div class="card-icon">&#128142;</div>
+      <div class="card-body">
+        <div class="card-title">Sapphire Agent Domain Leads</div>
+        <div class="card-desc">Connect with Sapphire Agent Domain Leads for guidance, reviews, and cross-domain coordination on AI agent initiatives.</div>
+      </div>
+    </div>
+    <div class="info-card" style="--accent:#0891b2;--icon-bg:#e0f7fa;">
+      <div class="card-icon">&#128172;</div>
+      <div class="card-body">
+        <div class="card-title">Application Foundation MS Teams Channel</div>
+        <div class="card-desc">Join the Application Foundation Microsoft Teams channel for real-time updates, support, and community discussions on AI development.</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  SAP Internal Use Only &nbsp;&middot;&nbsp; AI Important Links &nbsp;&middot;&nbsp; Last updated June 2026
+</footer>
+
+</body>
+</html>
